@@ -7,6 +7,11 @@ class DatesService {
         await newDate.populate('creator')
         return newDate
     }
+
+    getDates(query) {
+        const dates = dbContext.Date.find(query)
+        return dates
+    }
 }
 
 export const datesService = new DatesService()

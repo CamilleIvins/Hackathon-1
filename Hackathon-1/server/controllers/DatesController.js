@@ -8,6 +8,7 @@ export class DatesController extends BaseController {
         super('api/dates')
         this.router
             .post('', this.createDate)
+            .get('', this.getDates)
     }
     async createDate(req, res, next) {
         try {
@@ -20,4 +21,12 @@ export class DatesController extends BaseController {
         }
     }
 
+    async getDates(req, res, next) {
+        try {
+            const dates = await datesService.getDates(req.query)
+            res.send(dates)
+        } catch (error) {
+            next(error)
+        }
+    }
 }

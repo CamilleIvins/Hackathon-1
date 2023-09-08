@@ -2,7 +2,7 @@ import { Schema } from "mongoose"
 
 
 export const DateSchema = new Schema({
-    creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
+    creatorId: { type: Schema.Types.ObjectId, ref: 'Account' },
     title: { type: String, required: true, maxlength: 500 },
     day: { type: String, maxlength: 35 },
     location: { type: String, maxlength: 100 },
