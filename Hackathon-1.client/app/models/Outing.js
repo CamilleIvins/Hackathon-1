@@ -2,15 +2,15 @@
 
 
 
-export class Date {
-    constructor(data) {
-        this.id = data.id
-        this.title = data.title
-    }
+export class Outing {
+  constructor(data) {
+    this.id = data.id
+    this.title = data.title
+  }
 
 
-    get DateTemplate() {
-        return `
+  get OutingTemplate() {
+    return `
        <div class="col-6">
         <div class="elevation-5">
           <h1>name</h1>
@@ -21,5 +21,5 @@ export class Date {
         
         
         `
-    }
+  }
 }
