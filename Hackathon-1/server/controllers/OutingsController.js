@@ -9,7 +9,7 @@ export class OutingsController extends BaseController {
         super('api/outings')
         this.router
             .get('', this.getOutings)
-            // .use(Auth0Provider.getAuthorizedUserInfo)
+            .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createOuting)
     }
     async createOuting(req, res, next) {
