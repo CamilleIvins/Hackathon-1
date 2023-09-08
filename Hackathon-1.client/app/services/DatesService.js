@@ -9,7 +9,7 @@ class DatesService {
     async getDates() {
         const res = await api.get('api/dates')
         logger.log('got dates', res.data)
-        // AppState.dates = res.data.map(datePojo => new Date(datePojo))
+        AppState.dates = res.data.map(datePojo => new Date(datePojo))
     }
 }
 
