@@ -10,6 +10,8 @@ export class OutingsController extends BaseController {
         this.router
             .get('', this.getOutings)
             .use(Auth0Provider.getAuthorizedUserInfo)
+            .get('/:creatorId', this.getOutingsByCreator)
+            // .get('', this.)
             .post('', this.createOuting)
     }
     async createOuting(req, res, next) {
@@ -27,6 +29,15 @@ export class OutingsController extends BaseController {
         try {
             const outings = await outingsService.getOutings(req.query)
             res.send(outings)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async getOutingsByCreator(req, res, next) {
+        try {
+            const creatorOutings = await outingsService.getOutingsByCreator(req.params.creatorId)
+            res.send(creatorOutings)
         } catch (error) {
             next(error)
         }
