@@ -11,6 +11,8 @@ class ObservableAppState extends EventEmitter {
 
 
 
+
+
   page = ''
   user = null
   /** @type {import('./models/Account.js').Account | null} */
