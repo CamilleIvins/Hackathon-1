@@ -12,6 +12,11 @@ class OutingsService {
         const Outings = dbContext.Outing.find(query)
         return Outings
     }
+
+    getOutingsByCreator(creatorId) {
+        const creatorOutings = dbContext.Outing.find({ creatorId })
+        return creatorOutings
+    }
 }
 
 export const outingsService = new OutingsService()
