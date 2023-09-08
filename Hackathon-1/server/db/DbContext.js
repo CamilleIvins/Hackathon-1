@@ -1,13 +1,13 @@
 import mongoose from 'mongoose'
 import { AccountSchema } from '../models/Account'
 import { ValueSchema } from '../models/Value'
-import { DateSchema } from '../models/Date.js';
+import { OutingSchema } from '../models/Outing.js';
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
 
-  Date = mongoose.model('Date', DateSchema);
+  Outing = mongoose.model('Outing', OutingSchema);
 }
 
 export const dbContext = new DbContext()
