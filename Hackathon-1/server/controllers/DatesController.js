@@ -15,7 +15,7 @@ export class DatesController extends BaseController {
     async createDate(req, res, next) {
         try {
             const body = req.body
-            // body.creatorId = req.userInfo.id
+            body.creatorId = req.userInfo.id
             const date = await datesService.createDate(body)
             res.send(date)
         } catch (error) {
