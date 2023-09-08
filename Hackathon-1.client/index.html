@@ -39,7 +39,26 @@
 
   <!-- SECTION -->
   <main>
-
+    <div id=" dateForm" class="mb-3">
+      <form onsubmit="app.DatesController.postDate()">
+        <label for="title" class="form-label">Name</label>
+        <input type="text" name="title" class="form-control" placeholder="name">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <button type="submit" class="btn btn-info"> + </button>
+      </form>
+    </div>
+    <div id="dateHolder" class="row d-flex justify-content-between">
+      <!-- <div class="col-6">
+        <div class="elevation-5">
+          <h1>name</h1>
+          <img src="" alt="no pics yet">
+          <p>description</p>
+        </div>
+      </div> -->
+    </div>
 
     <section id="router-view">
       <!-- primary viewport -->
