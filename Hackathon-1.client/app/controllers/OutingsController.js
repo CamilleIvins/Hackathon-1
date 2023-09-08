@@ -1,26 +1,26 @@
 import { AppState } from "../AppState.js"
-import { datesService } from "../services/DatesService.js"
+import { outingsService } from "../services/OutingsService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
-function _drawDates() {
+function _drawOutings() {
     let template = ''
-    AppState.dates.forEach(d => template += d.datesTemplate)
-    setHTML('dateHolder', template)
+    AppState.outings.forEach(d => template += d.DateTemplate)
+    setHTML('outingHolder', template)
 }
 
 
-export class DatesController {
+export class OutingsController {
     constructor() {
-        AppState.on('dates', _drawDates)
-        this.getDates
-        console.log('dates Controller')
+        this.getOutings
+        console.log('Outings Controller')
+        AppState.on('outings', _drawOutings)
     }
 
-    async getDates() {
+    async getOutings() {
         try {
-            await datesService.getDates()
+            await outingsService.getOutings()
         } catch (error) {
             Pop.error(error)
         }
@@ -31,7 +31,7 @@ export class DatesController {
         const form = window.event?.target
         const formData = getFormData(form)
         console.log(formData);
-        await datesService.postDate(formData)
+        await outingsService.postOuting(formData)
 
     }
 
