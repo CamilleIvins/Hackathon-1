@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { Favourite } from './models/Favourite.js'
 import { Outing } from './models/Outing.js'
 import { Value } from './models/Value.js'
 import { EventEmitter } from './utils/EventEmitter.js'
@@ -7,11 +8,14 @@ import { loadState } from './utils/Store.js'
 
 class ObservableAppState extends EventEmitter {
 
-  /** @type {OutingS[]} */
+  /** @type {Outing[]} */
   outings = []
 
+  /** @type {Favourite[]} */
+  favourites = []
+
   /** @type {import('./models/Outing.js').Outing|null} */
-  activeOuting = null
+  activeOuting = []
 
 
 

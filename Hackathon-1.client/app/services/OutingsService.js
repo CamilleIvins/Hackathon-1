@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Favourite } from "../models/Favourite.js"
 import { Outing } from "../models/Outing.js"
 import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
@@ -6,7 +7,7 @@ import { api } from "./AxiosService.js"
 
 class OutingsService {
     async leaveComment(outingId) {
-        const res = await api.put(`api/outings`)
+        const res = await api.put(`api/comments`)
         const updatedOuting = new Outing(res.data)
         let originalOuting = AppState.outings.findIndex(outing => outing.id == outingId)
         logger.log(originalOuting, "comment")
@@ -39,11 +40,14 @@ class OutingsService {
         logger.log(AppState.activeOuting)
     }
 
-    async checkFavourite(outingId) {
-        let foundOuting = AppState.outings.find(outing => outing.id == outingId)
+    async checkFavourite(thisId) {
+        let outingId = { outingId: thisId }
+        let foundOuting = AppState.outings.find(outing => outing.id == outingId.outingId)
         foundOuting.favourite = true
-        const res = await api.put(`api/outings/${outingId}`, foundOuting)
-        const updatedOuting = new Outing(res.data)
+        const res = await api.post(`api/favourites`, outingId)
+
+        const updatedOuting = new Outing(res.data.outing)
+        logger.log(updatedOuting, 'updated outing')
         let originalOutingIndex = AppState.outings.findIndex(outing => outing.id == outingId)
         AppState.outings.splice(originalOutingIndex, 1, updatedOuting)
         AppState.emit('outings')
