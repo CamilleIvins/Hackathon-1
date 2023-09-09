@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { Outing } from './models/Outing.js'
 import { Value } from './models/Value.js'
 import { EventEmitter } from './utils/EventEmitter.js'
 import { isValidProp } from './utils/IsValidProp.js'
@@ -6,10 +7,11 @@ import { loadState } from './utils/Store.js'
 
 class ObservableAppState extends EventEmitter {
 
-  /** @type {Outing[]} */
+  /** @type {OutingS[]} */
   outings = []
 
-
+  /** @type {import('./models/Outing.js').Outing|null} */
+  activeOuting = null
 
 
 

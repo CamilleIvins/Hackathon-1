@@ -1,1 +1,10 @@
 /* BASIC STYLES HERE */
+
+.bgBlue {
+    background-color: #288cd7;
+}
+
+.textPink {
+    color: #f3bae5;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
