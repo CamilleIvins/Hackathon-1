@@ -12,6 +12,10 @@ class FavouritesService {
         return favourite
     }
 
+    async getFavouritesByCreator(creatorId) {
+        const favourites = await dbContext.Favourite.find({ creatorId }).populate('creator outing')
+        return favourites
+    }
 }
 
 export const favouritesService = new FavouritesService()

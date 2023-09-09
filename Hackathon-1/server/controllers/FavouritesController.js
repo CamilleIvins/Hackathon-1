@@ -10,6 +10,7 @@ export class FavouritesController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createFavourite)
             .get('', this.getFavouritesByOuting)
+            .get('/:creatorId', this.getFavouritesByCreator)
     }
     async createFavourite(req, res, next) {
         try {
@@ -20,10 +21,7 @@ export class FavouritesController extends BaseController {
         } catch (error) {
             next(error)
         }
-
     }
-
-
 
     async getFavouritesByOuting(req, res, next) {
         try {
@@ -32,6 +30,14 @@ export class FavouritesController extends BaseController {
         } catch (error) {
             next(error)
         }
+    }
 
+    async getFavouritesByCreator(req, res, next) {
+        try {
+            const favourites = await favouritesService.getFavouritesByCreator(req.params.creatorId)
+            res.send(favourites)
+        } catch (error) {
+            next(error)
+        }
     }
 }

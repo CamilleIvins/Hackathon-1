@@ -8,7 +8,6 @@ export const OutingSchema = new Schema({
     location: { type: String, maxlength: 100 },
     description: { type: String, maxlength: 500 },
     voteCount: { type: Number },
-    comment: { type: String, maxLength: 500 }
 },
     { timestamps: true, toJSON: { virtuals: true } }
 )
