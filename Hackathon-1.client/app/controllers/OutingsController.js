@@ -6,14 +6,20 @@ import { setHTML } from "../utils/Writer.js"
 
 function _drawOutings() {
     let template = ''
-    AppState.outings.forEach(d => template += d.DateTemplate)
+    AppState.outings.forEach(d => template += d.OutingTemplate)
     setHTML('outingHolder', template)
 }
-
+let likeCount = 0
+function _likeCount() {
+    likeCount++
+}
+function _dislikeCount() {
+    likeCount--
+}
 
 export class OutingsController {
     constructor() {
-        this.getOutings
+        this.getOutings()
         console.log('Outings Controller')
         AppState.on('outings', _drawOutings)
     }
@@ -26,7 +32,8 @@ export class OutingsController {
         }
     }
 
-    async postDate() {
+    async postOuting() {
+
         window.event.preventDefault()
         const form = window.event?.target
         const formData = getFormData(form)
