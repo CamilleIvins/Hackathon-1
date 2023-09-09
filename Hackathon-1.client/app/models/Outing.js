@@ -25,7 +25,10 @@ export class Outing {
           <p>${this.description}</p>
           <p>${this.voteCount}</p>
           <div class ="border border-info bgBlue textPink" >
-         <div class="btn btn-info textPink" onclick="app.OutingsController.likeCount('${this.voteCount}')">Like</div>  <div class="btn btn-info textPink" onclick="app.OutingsController.dislikeCount("${this.id}")">Dislike</div>
+         <div class="btn btn-info textPink" onclick="app.OutingsController.likeCount('${this.voteCount}')">Like</div>  
+         <div class="btn btn-info textPink" onclick="app.OutingsController.dislikeCount('${this.id}')">Dislike</div>
+         <div class="btn btn-info textPink" onclick="app.OutingsController.deleteOuting('${this.id}')">X</div>
+         
          </div>
 
 <div class="d-flex justify-content-center align-items-center">

@@ -33,6 +33,14 @@ class OutingsService {
         const mappedOutings = res.data.map(datePojo => new Outing(datePojo))
         AppState.outings = mappedOutings
     }
+
+    async deleteOuting(outingId) {
+        const res = await api.delete(`api/outings/${outingId}`)
+        logger.log('deleting outing', res.data)
+        const filteredArr = AppState.outings.filter(outing => outing.id != outingId)
+        AppState.outings = filteredArr
+    }
+
     setActive(outingId) {
 
         const foundOuting = AppState.outings.find(outing => outing.id == outingId)

@@ -51,6 +51,19 @@ export class OutingsController {
         await outingsService.postOuting(formData)
     }
 
+    async deleteOuting(outingId) {
+        try {
+            console.log('deleting outing', outingId)
+            if (await Pop.confirm('Are you sure you want to remove this Date?')) {
+                outingsService.deleteOuting(outingId)
+            }
+        } catch (error) {
+            Pop.error(error)
+        }
+
+    }
+
+
     async leaveComment(outingId) {
         try {
             await outingsService.leaveComment(outingId)
