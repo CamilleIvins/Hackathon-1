@@ -1,4 +1,5 @@
 import { dbContext } from "../db/DbContext.js"
+import { BadRequest } from "../utils/Errors.js"
 
 
 class OutingsService {
@@ -8,14 +9,21 @@ class OutingsService {
         return newOuting
     }
 
-    getOutings(query) {
-        const Outings = dbContext.Outing.find(query)
+    async getOutings(query) {
+        const Outings = await dbContext.Outing.find(query)
         return Outings
     }
 
-    getOutingsByCreator(creatorId) {
-        const creatorOutings = dbContext.Outing.find({ creatorId })
+    async getOutingsByCreator(creatorId) {
+        const creatorOutings = await dbContext.Outing.find({ creatorId })
         return creatorOutings
+    }
+    async editOuting(outingId, updates) {
+        const originalOuting = await dbContext.Outing.findById(outingId)
+        if (!originalOuting) throw new BadRequest
+        originalOuting.voteCount = updates.voteCount
+        await originalOuting.save()
+        return originalOuting
     }
 }
 

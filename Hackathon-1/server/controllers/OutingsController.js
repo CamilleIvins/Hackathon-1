@@ -13,6 +13,7 @@ export class OutingsController extends BaseController {
             .get('/:creatorId', this.getOutingsByCreator)
             // .get('', this.)
             .post('', this.createOuting)
+            .put('/:outingId', this.editOuting)
     }
     async createOuting(req, res, next) {
         try {
@@ -38,6 +39,17 @@ export class OutingsController extends BaseController {
         try {
             const creatorOutings = await outingsService.getOutingsByCreator(req.params.creatorId)
             res.send(creatorOutings)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async editOuting(req, res, next) {
+        try {
+            const updates = req.body
+            const outingId = req.params.outingId
+            const updatedOuting = await outingsService.editOuting(outingId, updates)
+            res.send(updatedOuting)
         } catch (error) {
             next(error)
         }
