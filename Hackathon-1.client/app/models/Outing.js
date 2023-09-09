@@ -35,9 +35,9 @@ export class Outing {
   Leave Comment
 </button>
 
-
   <input class="form-check-input" ${this.checkboxState}  type="checkbox" name="completed" id="favourite" onchange="app.OutingsController.checkFavourite('${this.id}')>
   <label class="form-check-label" for="flexCheckDefault">Favourite Date</label>
+  
 </div>
 
 <!-- Modal -->

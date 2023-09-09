@@ -1,5 +1,5 @@
-import { favouritesService } from "../services/FavoritesService"
-import { Pop } from "../utils/Pop"
+import { favouritesService } from "../services/FavoritesService.js"
+import { Pop } from "../utils/Pop.js"
 
 
 export class FavouritesController {

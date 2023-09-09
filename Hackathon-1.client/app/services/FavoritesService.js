@@ -1,7 +1,7 @@
-import { AppState } from "../AppState"
-import { Favourite } from "../models/Favourite"
-import { logger } from "../utils/Logger"
-import { api } from "./AxiosService"
+import { AppState } from "../AppState.js"
+import { Favourite } from "../models/Favourite.js"
+import { logger } from "../utils/Logger.js"
+import { api } from "./AxiosService.js"
 
 
 
