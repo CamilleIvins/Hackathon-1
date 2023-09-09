@@ -1,3 +1,8 @@
+import { dbContext } from "../db/DbContext.js"
 
 
-class
+class CommentsService {
+
+}
+
+export const commentsService = new CommentsService()
