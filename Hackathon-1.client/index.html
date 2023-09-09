@@ -62,7 +62,7 @@
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" class="form-control" rows="3"></textarea>
-                <button type="submit" class=" m-2 p-3 btn btn-info"> + </button>
+                <button type="submit" class=" m-2 p-3 btn btn-info"> Create Date </button>
                 </form>
               </div>
             </div>
@@ -74,21 +74,26 @@
 
 
     <div id="outingHolder" class="row d-flex justify-content-evenly text-center">
-      <!-- <div class="col-6">
+      <!-- <div class="col-4 m-2">
         <div class="elevation-5">
-          <h1>name</h1>
-          <img src="" alt="no pics yet">
-          <p>description</p>
-        </div>
-      </div> -->
-    </div>
+          <h1 class="border border-info bgBlue textPink">${this.title}</h1>
+          <h3>${this.day}</h3>
+          <h4>${this.location}</h4>
 
-    <section id="router-view">
-      <!-- primary viewport -->
-    </section>
+          <p>${this.description}</p>
+          <p>${this.voteCount}</p>
+          <div class="border border-info bgBlue textPink">
+            <div class="btn btn-info textPink" onclick="app.OutingsController.likeCount('${this.voteCount}')">Like</div>
+            <div class="btn btn-info textPink" onclick="app.OutingsController.dislikeCount('${this.id}')">Dislike</div>
+          </div>
+        </div> -->
 
-    <button onclick="app.OutingsController.likeCount()">Like</button>
-    <button onclick="app.OutingsController.dislikeCount()">Dislike</button>
+      <section id="router-view">
+        <!-- primary viewport -->
+      </section>
+
+      <button onclick="app.OutingsController.likeCount()">Like</button>
+      <button onclick="app.OutingsController.dislikeCount()">Dislike</button>
 
   </main>
 

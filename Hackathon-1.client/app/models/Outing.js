@@ -1,7 +1,6 @@
 
 
 
-
 export class Outing {
   constructor(data) {
     this.id = data.id

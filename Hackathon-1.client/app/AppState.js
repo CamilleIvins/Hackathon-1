@@ -17,7 +17,8 @@ class ObservableAppState extends EventEmitter {
   /** @type {import('./models/Outing.js').Outing|null} */
   activeOuting = []
 
-
+  /** @type {Comment[]} */
+  comments = []
 
   page = ''
   user = null
